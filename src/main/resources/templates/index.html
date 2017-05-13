@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ROGERIO Rest Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="/js/jquery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <script>
+		function getCountries() {
+			$.ajax({
+				method : "GET",
+				url : "/getCountries",
+				data : {country : "Brazil"}
+			}).done(function(data) {
+				console.log(data);
+			});
+		}
+		
+		function findUser() {
+			
+			UserWrapper = {
+				title: "foo",
+				body : "bar",
+				id :1
+			}
+			
+			$.ajax({
+				method : "POST",
+				url : "/findUser",
+				data : UserWrapper
+			}).done(function(data) {
+				console.log(data);
+			});
+		}
+    	
+		$(function() {
+			findUser();
+		});
+		
+	</script>
+</body>
+</html>
